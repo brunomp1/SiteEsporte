@@ -1,5 +1,107 @@
 body{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    width: 100%;
+    height: 95px;
+    background-color: rgba(201, 194, 194, 0.712);
+    color: #222;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cabecalho img{
+    width: 240px;
+    height: auto;
+}
+
+.rodape{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    padding: 26px 35px;
+    background-color: rgba(201, 194, 194, 0.712);
+    box-sizing: border-box;
+}
+
+.rodape-coluna{
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+}
+
+.rodape-coluna h1{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 14px 0;
+}
+
+.rodape-coluna ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rodape-coluna ul li{
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: rgb(92, 89, 89);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rodape-coluna ul li img{
+    height: 35px;
+    width: auto;
+}
+
+.pagamento-icones{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 16px 24px;
+    align-items: center;
+}
+
+.pagamento-icones img{
+    height: 36px;
+    width: auto;
+}
+
+.qrcode{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.loja-app{
+    height: 60px;
+    width: 90px;
+    margin-bottom: 8px;
+}
+
+.rodape-final{
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    background-color:rgba(206, 203, 203, 0.712);
+    border-top: 1px solid #ddd;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.rodape-final p{
+    margin: 0;
 }
