@@ -7,6 +7,8 @@ Foi usado no desenvolvimento desse projeto:
 
 HTML5
 CSS3
+PHP
+JAVA-SCRIPT
 
 O projeto foi utilizado para o aprimoramento do uso do software de versionamento GIT, e as softskills de teamwork, troca de ideias, etc.
 
