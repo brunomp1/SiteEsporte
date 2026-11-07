@@ -3,59 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login | Cartão Amarelo</title>
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
 
-    <nav class="cabecalho">
-        <img src="../assets/imgs/Logo info esportes.png" alt="Logo do Site">
-        <h1>Seja Bem - Vindo(a)</h1>
-    </nav>
+    <section class="fita"></section>
 
-    <section class="rodape">
+    <header class="cabecalho">
+        <img src="../assets/imgs/Logo_Cartão_Amarelo.png" alt="Logo do Cartão Amarelo">
+        <h1>Seja Bem-Vindo(a)</h1>
+    </header>
 
-        <div class="rodape-coluna">
-            <h1>Sobre a Info Esportes</h1>
-            <ul>
-                <li>Sobre nós</li>
-                <li>Políticas de Esportes</li>
-                <li>Política de Privacidade</li>
-                <li>Programa de Torcedores</li>
-                <li>Seja um patrocinador</li>
-            </ul>
-        </div>
+    <main class="fundo">
+        <form class="forms" action="home.html">
+            <h2>Login</h2>
 
-        <div class="rodape-coluna">
-            <h1>Patrocínio</h1>
-            <div class="pagamento-icones">
-                <img src="../assets/imgs/pix.png" alt="Pix">
-                <img src="../assets/imgs/boleto.png" alt="Boleto">
-                <img src="../assets/imgs/master.png" alt="Mastercard">
-                <img src="../assets/imgs/elo.png" alt="Elo">
+            <input type="email" placeholder="Email" aria-label="Email" required>
+            <input type="password" placeholder="Senha" aria-label="Senha" required>
+
+            <a class="btn-entrar" href="home.html">ENTRE</a>
+
+            <div class="links-linha">
+                <a href="redefinir-senha.html">Esqueci minha senha</a>
             </div>
-        </div>
 
-        <div class="rodape-coluna">
-            <h1>Siga-nos</h1>
-            <ul>
-                <li><img src="../assets/imgs/insta.png" alt="Logo Instagram"> Instagram</li>
-                <li><img src="../assets/imgs/twitter.png" alt="Logo Twitter"> Twitter</li>
-                <li><img src="../assets/imgs/facebook.png" alt="Logo Facebook"> Facebook</li>
-            </ul>
-        </div>
+            <div class="divisor"><span>Ou</span></div>
 
-        <div class="rodape-coluna">
-            <h1>Baixe o Aplicativo</h1>
-            <img class="qrcode" src="../assets/imgs/qr.png" alt="QR Code">
-            <img class="loja-app" src="../assets/imgs/google-play.png" alt="Google Play">
-        </div>
+            <p class="cadastro-texto">
+                Novo no Cartão Amarelo?
+                <a href="cadastrar.html">Realizar Cadastro</a>
+            </p>
+        </form>
+    </main>
 
-    </section>
+    <footer>
+        <section class="rodape">
+            <div class="rodape-coluna">
+                <h3>Sobre a Info Esportes</h3>
+                <ul>
+                    <li>Sobre nós</li>
+                    <li>Políticas de Esportes</li>
+                    <li>Política de Privacidade</li>
+                    <li>Programa de Torcedores</li>
+                    <li>Seja um patrocinador</li>
+                </ul>
+            </div>
 
-    <section class="rodape-final">
-        <p>&copy; 2026 Info Esportes. Todos os direitos reservados</p>
-    </section>
+            <div class="rodape-coluna">
+                <h3>Patrocínio</h3>
+                <div class="pagamento-icones">
+                    <img src="../assets/imgs/pix.png" alt="Pix">
+                    <img src="../assets/imgs/boleto.png" alt="Boleto">
+                    <img src="../assets/imgs/master.png" alt="Mastercard">
+                    <img src="../assets/imgs/elo.png" alt="Elo">
+                </div>
+            </div>
 
+            <div class="rodape-coluna">
+                <h3>Siga-nos</h3>
+                <ul>
+                    <li><img src="../assets/imgs/insta.png" alt="Instagram"> Instagram</li>
+                    <li><img src="../assets/imgs/twitter.png" alt="Twitter"> Twitter</li>
+                    <li><img src="../assets/imgs/facebook.png" alt="Facebook"> Facebook</li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Baixe o Aplicativo</h3>
+                <img class="qrcode" src="../assets/imgs/qr.png" alt="QR Code">
+                <img class="loja-app" src="../assets/imgs/google-play.png" alt="Google Play">
+            </div>
+        </section>
+
+        <section class="rodape-final">
+            <p>&copy; 2026 Cartão Amarelo. Todos os direitos reservados</p>
+        </section>
+    </footer>
+
+    <script src="../assets/fita.js"></script>
 </body>
 </html>
