@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Cartão Amarelo</title>
+    <link rel="stylesheet" href="../assets/css/cadastro-usuario.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <img src="../assets/imgs/Logo_Cartão_Amarelo.png" alt="Logo do Cartão Amarelo">
+        <h1>Crie sua conta</h1>
+    </header>
+
+    <main class="fundo">
+        <form class="forms" action="../php/cadastro.php" method="post">
+            <h2>Cadastro</h2>
+
+            <input type="text" name="nome" placeholder="Nome" aria-label="Nome" required>
+            <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+            <input type="password" name="senha" placeholder="Senha" aria-label="Senha" required>
+            <input type="tel" name="telefone" placeholder="Telefone (18) 99999-9999" aria-label="Telefone" required>
+
+           <input type="text" name="time" list="lista-times" placeholder="Digite o nome do seu time" aria-label="Time" autocomplete="off" required>
+
+<datalist id="lista-times">
+    <option value="Amazonas">
+    <option value="Araguaia">
+    <option value="Arsenal">
+    <option value="Atlético de Madrid">
+    <option value="Boca Juniors">
+    <option value="Chelsea">
+    <option value="Corinthians">
+    <option value="Everton">
+    <option value="FC Barcelona">
+    <option value="Flamengo">
+    <option value="Harrogate Town">
+    <option value="Liverpool">
+    <option value="Manchester United">
+    <option value="Mirassol">
+    <option value="Morecambe">
+    <option value="Palmeiras">
+    <option value="Portuguesa-RJ">
+    <option value="Real Madrid">
+    <option value="Sporting CP">
+    <option value="Ypiranga">
+</datalist>
+
+            <input type="text" name="cidade" placeholder="Cidade" aria-label="Cidade" required>
+
+            <button type="submit" class="btn-entrar">CADASTRAR</button>
+
+            <div class="divisor"><span>Ou</span></div>
+
+            <p class="cadastro-texto">
+                Já tem conta?
+                <a href="login.html">Fazer login</a>
+            </p>
+        </form>
+    </main>
+
+</body>
+</html>

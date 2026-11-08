@@ -16,13 +16,13 @@
     </header>
 
     <main class="fundo">
-        <form class="forms" action="home.html">
+        <form class="forms" action="../php/login.php" method="post">
             <h2>Login</h2>
+            <p class="mensagem-erro" id="mensagem-erro"></p>
+            <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+            <input type="password" name="senha" placeholder="Senha" aria-label="Senha" required>
 
-            <input type="email" placeholder="Email" aria-label="Email" required>
-            <input type="password" placeholder="Senha" aria-label="Senha" required>
-
-            <a class="btn-entrar" href="home.html">ENTRE</a>
+            <button type="submit" class="btn-entrar">ENTRE</button>
 
             <div class="links-linha">
                 <a href="redefinir-senha.html">Esqueci minha senha</a>
@@ -80,7 +80,8 @@
             <p>&copy; 2026 Cartão Amarelo. Todos os direitos reservados</p>
         </section>
     </footer>
-
+    
     <script src="../assets/fita.js"></script>
+    <script src="../assets/erro-login.js"></script>
 </body>
 </html>

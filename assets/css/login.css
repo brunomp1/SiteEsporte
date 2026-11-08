@@ -32,7 +32,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     gap: 16px;
-    padding: 12px 20px;
+    padding: 6px 20px;
     background-color: #dfdbdbb6;
     color: #111111;
     border-bottom: 4px solid #111111;
@@ -40,12 +40,12 @@ body {
 
 .cabecalho h1 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: #111111;
 }
 
 .cabecalho img {
-    width: 240px;
+    width: 160px;
     max-width: 40%;
     height: auto;
 }
@@ -101,7 +101,9 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1rem;
 }
+
 
 .btn-entrar:hover {
     background-color: #111111;
@@ -231,4 +233,17 @@ body {
 
 .rodape-final p {
     margin: 0;
+}
+
+.mensagem-erro {
+    display: none;
+    margin: 0 0 14px;
+    padding: 10px;
+    background-color: #f5cb0e;
+    color: #111111;
+    border: 2px solid #111111;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
 }
