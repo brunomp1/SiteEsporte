@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Afiliado | Cartão Amarelo</title>
+    <link rel="stylesheet" href="../assets/css/afiliado.css">
+</head>
+<body>
+
+    <section class="fita"></section>
+
+    <header class="cabecalho">
+        <img src="../assets/imgs/Logo_Cartão_Amarelo.png"
+             alt="Logo do Cartão Amarelo">
+        <h1>Seja um torcedor afiliado!</h1>
+    </header>
+
+    <main class="conteudo-principal">
+
+        <section class="apresentacao-time">
+
+            <div class="escudo-time">
+                <img src="../assets/Times/corinthians-logo-footylogos.svg" alt="Escudo do Corinthians">
+            </div>
+
+            <div class="informacoes-time">
+                <p class="texto-destaque">PROGRAMA DE AFILIAÇÃO</p>
+                <h2>VAI, CORINTHIANS!</h2>
+                <p>
+                    Faça parte de uma comunidade de torcedores apaixonados.
+                    Escolha seu plano e aproveite benefícios exclusivos!
+                </p>
+            </div>
+
+        </section>
+
+        <section class="secao-beneficios">
+
+            <h2>Por que se tornar afiliado?</h2>
+
+            <div class="lista-beneficios">
+
+                <div class="beneficio">
+                    <span class="icone-beneficio">👕</span>
+                    <h3>Camisa do time</h3>
+                    <p>Ganhe uma camisa oficial fictícia de acordo com seu plano.</p>
+                </div>
+
+                <div class="beneficio">
+                    <span class="icone-beneficio">🎟️</span>
+                    <h3>Ingressos</h3>
+                    <p>Tenha acesso a benefícios especiais para jogos do time.</p>
+                </div>
+
+                <div class="beneficio">
+                    <span class="icone-beneficio">⭐</span>
+                    <h3>Vantagens exclusivas</h3>
+                    <p>Participe de promoções e ações especiais para afiliados.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="secao-planos">
+
+            <h2>Escolha seu plano</h2>
+
+            <p class="descricao-planos">
+                Encontre a opção ideal para acompanhar seu time de coração.
+            </p>
+
+            <form action="../php/afiliado.php" method="post">
+
+                <div class="lista-planos">
+
+                    <label class="cartao-plano">
+
+                        <input type="radio" name="plano" value="arquibancada" required>
+
+                        <h3>Arquibancada</h3>
+
+                        <p class="preco-plano">
+                            R$ 29,90 <span>/ mês</span>
+                        </p>
+
+                        <ul>
+                            <li>Acesso à comunidade de afiliados</li>
+                            <li>Participação em promoções</li>
+                            <li>Descontos fictícios em produtos</li>
+                        </ul>
+
+                    </label>
+
+                    <label class="cartao-plano plano-destaque">
+
+                        <span class="selo-plano">MAIS POPULAR</span>
+
+                        <input type="radio" name="plano" value="camisa">
+
+                        <h3>Camisa do Timão</h3>
+
+                        <p class="preco-plano">
+                            R$ 59,90 <span>/ mês</span>
+                        </p>
+
+                        <ul>
+                            <li>Todos os benefícios anteriores</li>
+                            <li>Uma camisa do time por ano</li>
+                            <li>Descontos especiais</li>
+                        </ul>
+
+                    </label>
+
+                    <label class="cartao-plano">
+
+                        <input type="radio" name="plano" value="fiel">
+
+                        <h3>Fiel Torcedor</h3>
+
+                        <p class="preco-plano">
+                            R$ 89,90 <span>/ mês</span>
+                        </p>
+
+                        <ul>
+                            <li>Todos os benefícios anteriores</li>
+                            <li>Um ingresso fictício por ano</li>
+                            <li>Experiências exclusivas</li>
+                        </ul>
+
+                    </label>
+
+                </div>
+
+                <button type="submit" class="botao-afiliar">
+                    QUERO ME TORNAR AFILIADO
+                </button>
+
+            </form>
+
+            <p class="aviso-planos">
+                *Planos e benefícios ilustrativos para fins acadêmicos.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <section class="rodape">
+
+            <div class="rodape-coluna">
+                <h3>Sobre a Info Esportes</h3>
+                <ul>
+                    <li>Sobre nós</li>
+                    <li>Políticas de Esportes</li>
+                    <li>Política de Privacidade</li>
+                    <li>Programa de Torcedores</li>
+                    <li>Seja um patrocinador</li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Patrocínio</h3>
+                <div class="pagamento-icones">
+                    <img src="../assets/imgs/pix.png" alt="Pix">
+                    <img src="../assets/imgs/boleto.png" alt="Boleto">
+                    <img src="../assets/imgs/master.png" alt="Mastercard">
+                    <img src="../assets/imgs/elo.png" alt="Elo">
+                </div>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Siga-nos</h3>
+                <ul>
+                    <li><img src="../assets/imgs/insta.png" alt=""> Instagram</li>
+                    <li><img src="../assets/imgs/twitter.png" alt=""> Twitter</li>
+                    <li><img src="../assets/imgs/facebook.png" alt=""> Facebook</li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Baixe o Aplicativo</h3>
+                <img class="qrcode" src="../assets/imgs/qr.png" alt="QR Code">
+                <img class="loja-app" src="../assets/imgs/google-play.png" alt="Google Play">
+            </div>
+
+        </section>
+
+        <section class="rodape-final">
+            <p>&copy; 2026 Cartão Amarelo. Todos os direitos reservados</p>
+        </section>
+
+    </footer>
+
+</body>
+</html>

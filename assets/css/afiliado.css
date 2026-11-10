@@ -1,0 +1,323 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.fita {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        #D71920,
+        #D71920 20px,
+        #111111 20px,
+        #111111 40px
+    );
+    background-size: 56.57px 100%;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    padding: 6px 20px;
+    background-color: #dfdbdbb6;
+    color: #111111;
+    border-bottom: 4px solid #D71920;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.cabecalho img {
+    width: 160px;
+    max-width: 40%;
+    height: auto;
+}
+
+.conteudo-principal {
+    flex: 1;
+    padding: 35px 50px;
+    background-color: #D71920;
+}
+
+.apresentacao-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    padding: 35px;
+    background-color: #111111;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.escudo-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.informacoes-time {
+    max-width: 550px;
+}
+
+.texto-destaque {
+    color: #D71920;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.informacoes-time h2 {
+    margin: 10px 0;
+    font-size: 2.2rem;
+}
+
+.informacoes-time p:last-child {
+    line-height: 1.6;
+}
+
+.secao-beneficios {
+    padding: 35px 0;
+    text-align: center;
+}
+
+.secao-beneficios h2,
+.secao-planos h2 {
+    font-size: 1.7rem;
+    margin: 0 0 25px;
+}
+
+.lista-beneficios {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.beneficio {
+    flex: 1;
+    max-width: 300px;
+    padding: 22px;
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 8px;
+}
+
+.icone-beneficio {
+    font-size: 2rem;
+}
+
+.beneficio h3 {
+    margin-bottom: 10px;
+}
+
+.beneficio p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.secao-planos {
+    padding: 30px;
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.descricao-planos {
+    margin-bottom: 30px;
+}
+
+.lista-planos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cartao-plano {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    padding: 25px 20px;
+    border: 2px solid #111111;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.cartao-plano input {
+    margin-bottom: 15px;
+    accent-color: #D71920;
+}
+
+.cartao-plano h3 {
+    margin: 5px 0 15px;
+    text-align: center;
+}
+
+.preco-plano {
+    margin: 15px 0;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.preco-plano span {
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+.cartao-plano ul {
+    padding-left: 20px;
+    line-height: 2;
+    font-size: 0.9rem;
+}
+
+.plano-destaque {
+    background-color: #fff0f0;
+    border: 3px solid #D71920;
+}
+
+.selo-plano {
+    display: block;
+    margin-bottom: 12px;
+    color: #D71920;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.botao-afiliar {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: 30px auto 0;
+    background-color: #D71920;
+    color: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-afiliar:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.aviso-planos {
+    margin-top: 20px;
+    color: #555555;
+    font-size: 0.8rem;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 28px 35px;
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+}
+
+.rodape-coluna h3 {
+    margin: 0 0 14px;
+    font-size: 1rem;
+    color: #D71920;
+}
+
+.rodape-coluna ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rodape-coluna ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.rodape-coluna ul li:hover {
+    color: #D71920;
+}
+
+.rodape-coluna ul li img {
+    height: 28px;
+    width: auto;
+}
+
+.pagamento-icones {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 16px 24px;
+    align-items: center;
+}
+
+.pagamento-icones img {
+    height: 36px;
+    width: auto;
+}
+
+.qrcode {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.loja-app {
+    height: 60px;
+    width: 90px;
+    object-fit: contain;
+}
+
+.rodape-final {
+    padding: 12px 0;
+    text-align: center;
+    background-color: #111111;
+    border-top: 1px solid #D71920;
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+.rodape-final p {
+    margin: 0;
+}
+
+.escudo-time img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
