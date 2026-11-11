@@ -76,7 +76,6 @@ include "noticias-dados.php";
 
     </main>
 
-    <?php include "rodape.php"; ?>
 
 </body>
 </html>
