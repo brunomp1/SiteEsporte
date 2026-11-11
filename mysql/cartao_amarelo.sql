@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/11/2026 às 02:16
+-- Tempo de geração: 12/11/2026 às 00:49
 -- Versão do servidor: 10.11.16-MariaDB
 -- Versão do PHP: 8.5.12
 
@@ -43,7 +43,11 @@ CREATE TABLE `torcedores` (
 --
 
 INSERT INTO `torcedores` (`id`, `nome`, `email`, `senha`, `telefone`, `time_clube`, `cidade`, `criado_em`) VALUES
-(1, 'pedro', 'pedro@hj', '$2y$12$lSHx.WE7T9XwCdPBI9nzx.1tt2lfpyYTDvoncNFy1xf8CBCON8OZq', '189999923', 'Corinthians', 'Presidente', '2026-11-08 12:39:17');
+(1, 'pedro', 'pedro@hj', '123', '189999923', 'Corinthians', 'Presidente', '2026-11-08 12:39:17'),
+(2, 'Bruno', 'bruno@123', '123', '18676767', 'Corinthians', 'Prudente', '2026-11-10 01:36:34'),
+(3, 'Pedro', 'pjbrito@gmail', '123', '189676767', 'Corinthians', 'Presidente Prudente', '2026-11-11 17:54:21'),
+(4, 'Anardo', 'anar@gmail', '123', '1899', 'Sporting CP', 'A', '2026-11-11 22:35:35'),
+(5, 'ana', 'ana@gmail', '1234', '00000000000', 'Mirassol', 'SP', '2026-11-11 23:34:46');
 
 --
 -- Índices para tabelas despejadas
@@ -64,7 +68,7 @@ ALTER TABLE `torcedores`
 -- AUTO_INCREMENT de tabela `torcedores`
 --
 ALTER TABLE `torcedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
