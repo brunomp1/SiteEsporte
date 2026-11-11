@@ -9,7 +9,7 @@ if (!empty($_POST['nome']) && !empty($_POST['email']) &&
     // Recebendo
     $nome     = trim($_POST['nome']);
     $email    = trim($_POST['email']);
-    $senha    = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $senha    = trim($_POST['senha']);
     $telefone = trim($_POST['telefone']);
     $time     = trim($_POST['time']);
     $cidade   = trim($_POST['cidade']);
@@ -23,12 +23,12 @@ if (!empty($_POST['nome']) && !empty($_POST['email']) &&
     if ($verifica->num_rows > 0) {
         echo "Este email já está cadastrado.";
     } else {
-        // Salva no banco
+        // Salva banco
         $stmt = $conexao->prepare(
             "INSERT INTO torcedores (nome, email, senha, telefone, time_clube, cidade)
-             VALUES (?, ?, ?, ?, ?, ?)"
+             VALUES (?, ?, ?, ?, ?, ?)" //Prenenche vazio
         );
-        $stmt->bind_param("ssssss", $nome, $email, $senha, $telefone, $time, $cidade);
+        $stmt->bind_param("ssssss", $nome, $email, $senha, $telefone, $time, $cidade); //sss paar indicar que é string para não tomar sql
 
         if ($stmt->execute()) {
             header("Location: ../view/login.html");

@@ -37,7 +37,4 @@
         </div>
     </section>
 
-    <section class="rodape-final">
-        <p>&copy; 2026 Cartão Amarelo. Todos os direitos reservados</p>
-    </section>
 </footer>
