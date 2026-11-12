@@ -9,20 +9,6 @@ body {
     color: #111111;
 }
 
-.fita {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    height: 20px;
-    background: repeating-linear-gradient(
-        45deg,
-        #D71920,
-        #D71920 20px,
-        #111111 20px,
-        #111111 40px
-    );
-    background-size: 56.57px 100%;
-}
 
 .cabecalho {
     display: flex;
