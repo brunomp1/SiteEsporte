@@ -9,7 +9,6 @@ body {
     color: #111111;
 }
 
-
 .cabecalho {
     display: flex;
     align-items: center;
@@ -107,10 +106,6 @@ body {
     background-color: #ffffff;
     border: 2px solid #111111;
     border-radius: 8px;
-}
-
-.icone-beneficio {
-    font-size: 2rem;
 }
 
 .beneficio h3 {
