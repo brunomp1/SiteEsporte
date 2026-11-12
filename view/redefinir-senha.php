@@ -6,7 +6,7 @@ $mensagem = "";
 if (!empty($_POST['email']) && !empty($_POST['nova_senha'])) {
 
     $email = trim($_POST['email']);
-    $senha = password_hash($_POST['nova_senha'], PASSWORD_DEFAULT);
+    $senha = ($_POST['nova_senha']);
 
     $stmt = $conexao->prepare("UPDATE torcedores SET senha = ? WHERE email = ?");
     $stmt->bind_param("ss", $senha, $email);
