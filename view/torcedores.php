@@ -8,7 +8,9 @@ if (!isset($_SESSION['id'])) {
 
 require "../php/conexao.php";
 
-$resultado = $conexao->query("SELECT nome, telefone, time_clube, cidade FROM torcedores ORDER BY nome");
+$resultado = $conexao->query("SELECT id, nome, telefone, time_clube, cidade FROM torcedores ORDER BY nome");
+
+$msg = $_GET['msg'] ?? "";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

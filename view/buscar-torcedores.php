@@ -18,7 +18,7 @@ if ($time != "" || $cidade != "") {
     $likeCidade = "%" . $cidade . "%";
 
     $stmt = $conexao->prepare(
-        "SELECT nome, telefone, time_clube, cidade FROM torcedores
+        "SELECT id, nome, telefone, time_clube, cidade FROM torcedores
          WHERE time_clube LIKE ? AND cidade LIKE ? ORDER BY nome"
     );
     $stmt->bind_param("ss", $likeTime, $likeCidade);
