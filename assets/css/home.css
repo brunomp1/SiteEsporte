@@ -527,3 +527,21 @@ body {
     background-color: #ffffff;
     color: #111111;
 }
+.form-edicao select {
+    padding: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #111111;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.form-edicao select:focus {
+    outline: 3px solid #f5cb0e;
+}
+
+.nota-form {
+    margin: 0 0 16px;
+    font-size: 0.9rem;
+}

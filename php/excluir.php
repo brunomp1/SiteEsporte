@@ -16,7 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] != "POST" || empty($_POST['id'])) {
 
 $id = (int) $_POST['id'];
 
-// Apaga a linha cujo id é igual ao enviado. O WHERE é ESSENCIAL: sem ele apagaria TODOS os torcedores!
+// Antes de apagar o torcedor, apaga as afiliações dele
+$apagaAfiliacoes = $conexao->prepare("DELETE FROM afiliacoes WHERE torcedor_id = ?");
+$apagaAfiliacoes->bind_param("i", $id);
+$apagaAfiliacoes->execute();
+
+// Apaga a linha do  id é igual ao enviado
 $stmt = $conexao->prepare("DELETE FROM torcedores WHERE id = ?");
 $stmt->bind_param("i", $id);
 
