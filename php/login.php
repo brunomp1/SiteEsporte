@@ -1,17 +1,24 @@
 <?php
 session_start();
-require "conexao.php";
+require "funcoes.php";
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+if (!empty($_POST['email']) && !empty($_POST['senha'])) {
 
-$resultado = $conexao->query("SELECT id, nome FROM torcedores WHERE email = '$email' AND senha = '$senha'");
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-if ($resultado->num_rows == 1) {
-    $usuario = $resultado->fetch_assoc();
-    $_SESSION['id']   = $usuario['id'];
-    $_SESSION['nome'] = $usuario['nome'];
-    header("Location: ../view/home.php");
+    $resultado = retornarLogin($email, $senha);
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    if ($usuario) {
+        $_SESSION['id']   = $usuario['id'];
+        $_SESSION['nome'] = $usuario['nome'];
+        header('Location: ../view/home.php');
+    } else {
+        header('Location: ../view/login.html?erro=1');
+    }
+
 } else {
-    header("Location: ../view/login.html?erro=1");
+    header('Location: ../view/login.html?erro=2');
 }
+die();

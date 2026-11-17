@@ -1,5 +1,5 @@
 <?php
-require "conexao.php";
+require "funcoes.php";
 
 // Cadastro de Torcedor
 if (!empty($_POST['nome']) && !empty($_POST['email']) &&
@@ -7,32 +7,25 @@ if (!empty($_POST['nome']) && !empty($_POST['email']) &&
     !empty($_POST['time']) && !empty($_POST['cidade'])) {
 
     // Recebendo
-    $nome     = trim($_POST['nome']);
-    $email    = trim($_POST['email']);
-    $senha    = trim($_POST['senha']);
-    $telefone = trim($_POST['telefone']);
-    $time     = trim($_POST['time']);
-    $cidade   = trim($_POST['cidade']);
+    $nome     = $_POST['nome'];
+    $email    = $_POST['email'];
+    $senha    = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $time     = $_POST['time'];
+    $cidade   = $_POST['cidade'];
 
     // Confere se o email já existe
-    $verifica = $conexao->prepare("SELECT id FROM torcedores WHERE email = ?");
-    $verifica->bind_param("s", $email);
-    $verifica->execute();
-    $verifica->store_result();
+    $torcedor = retornarTorcedorPorEmail($email);
 
-    if ($verifica->num_rows > 0) {
+    if (mysqli_fetch_assoc($torcedor)) {
         echo "Este email já está cadastrado.";
     } else {
-        // Salva banco
-        $stmt = $conexao->prepare(
-            "INSERT INTO torcedores (nome, email, senha, telefone, time_clube, cidade)
-             VALUES (?, ?, ?, ?, ?, ?)" //Prenenche vazio
-        );
-        $stmt->bind_param("ssssss", $nome, $email, $senha, $telefone, $time, $cidade); //sss paar indicar que é string para não tomar sql
+        // Salva no banco
+        $resultado = inserirTorcedor($nome, $email, $senha, $telefone, $time, $cidade);
 
-        if ($stmt->execute()) {
-            header("Location: ../view/login.html");
-            exit;
+        if ($resultado) {
+            header('Location: ../view/login.html');
+            die();
         } else {
             echo "Erro ao cadastrar.";
         }
