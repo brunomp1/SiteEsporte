@@ -114,7 +114,7 @@ function atualizarAfiliacao($id, $torcedor, $time, $plano, $pagamento){
 
 function excluirAfiliacao($id){
 
-    // O WHERE é ESSENCIAL: sem ele apagaria TODAS as afiliações!
+    // Sem where da ruim no codigo
     $conexao = conectarBD();
     $consulta = "DELETE FROM afiliacoes WHERE id = $id";
     return mysqli_query($conexao,$consulta);
@@ -175,6 +175,129 @@ function excluirTime($id){
     // O WHERE é ESSENCIAL: sem ele apagaria TODOS os times!
     $conexao = conectarBD();
     $consulta = "DELETE FROM times WHERE id = $id";
+
+// ---------------- CAMPEONATOS ----------------
+
+function inserirCampeonato($nome, $ano, $listaTimes){
+
+    $conexao = conectarBD();
+    // mysqli_real_escape_string deixa o texto seguro para entrar no SQL
+    $nome = mysqli_real_escape_string($conexao,$nome);
+    $consulta = "INSERT INTO campeonatos (nome, ano) VALUES ('$nome',$ano)";
+    $resultado = mysqli_query($conexao,$consulta);
+
+    // id do campeonato que acabou de ser criado: serve para ligar os times a ele
+    $idNovo = mysqli_insert_id($conexao);
+    salvarTimesDoCampeonato($idNovo, $listaTimes);
+
+    return $resultado;
+}
+
+function atualizarCampeonato($id, $nome, $ano, $listaTimes){
+
+    $conexao = conectarBD();
+    $nome = mysqli_real_escape_string($conexao,$nome);
+    $consulta = "UPDATE campeonatos SET nome = '$nome', ano = $ano WHERE id = $id";
+    $resultado = mysqli_query($conexao,$consulta);
+
+    salvarTimesDoCampeonato($id, $listaTimes);
+
+    return $resultado;
+}
+
+function salvarTimesDoCampeonato($idCampeonato, $listaTimes){
+
+    $conexao = conectarBD();
+
+    // Apaga os times antigos do campeonato e grava de novo os que foram marcados.
+    // Assim a mesma função serve para cadastrar e para editar.
+    mysqli_query($conexao,"DELETE FROM campeonato_times WHERE campeonato_id = $idCampeonato");
+
+    foreach ($listaTimes as $time) {
+        $time = mysqli_real_escape_string($conexao,$time);
+        mysqli_query($conexao,"INSERT INTO campeonato_times (campeonato_id, time_nome) VALUES ($idCampeonato,'$time')");
+    }
+}
+
+function retornarCampeonatos(){
+
+    $conexao = conectarBD();
+    // O LEFT JOIN traz o campeonato mesmo que ele ainda não tenha times.
+    // O GROUP_CONCAT junta os nomes dos times em uma linha só.
+    $consulta = "SELECT c.id, c.nome, c.ano, COUNT(ct.id) AS total_times,
+                        GROUP_CONCAT(ct.time_nome ORDER BY ct.time_nome SEPARATOR ', ') AS times
+                 FROM campeonatos c
+                 LEFT JOIN campeonato_times ct ON ct.campeonato_id = c.id
+                 GROUP BY c.id, c.nome, c.ano
+                 ORDER BY c.ano DESC, c.nome";
+    $listaCampeonatos = mysqli_query($conexao,$consulta);
+    return $listaCampeonatos;
+}
+
+function retornarCampeonatoPorId($id){
+
+    $conexao = conectarBD();
+    $consulta = "SELECT id, nome, ano FROM campeonatos WHERE id = $id";
+    $campeonato = mysqli_query($conexao,$consulta);
+    return $campeonato;
+}
+
+function retornarTimesDoCampeonato($id){
+
+    $conexao = conectarBD();
+    $consulta = "SELECT time_nome FROM campeonato_times WHERE campeonato_id = $id";
+    $listaTimes = mysqli_query($conexao,$consulta);
+    return $listaTimes;
+}
+
+function excluirCampeonato($id){
+
+    $conexao = conectarBD();
+    // Primeiro apaga os times do campeonato, depois o próprio campeonato
+    mysqli_query($conexao,"DELETE FROM campeonato_times WHERE campeonato_id = $id");
+
+    // O WHERE é ESSENCIAL: sem ele apagaria TODOS os campeonatos!
+    return mysqli_query($conexao,"DELETE FROM campeonatos WHERE id = $id");
+}
+
+// ---------------- COMENTÁRIOS (COMUNIDADE) ----------------
+
+function inserirComentario($torcedor, $campeonato, $texto){
+
+    $conexao = conectarBD();
+    $texto = mysqli_real_escape_string($conexao,$texto);
+
+    // Sem campeonato escolhido (0), o comentário é geral: guarda NULL no banco
+    if ($campeonato == 0) {
+        $campeonato = "NULL";
+    }
+
+    $consulta = "INSERT INTO comentarios (torcedor_id, campeonato_id, texto)
+                 VALUES ($torcedor,$campeonato,'$texto')";
+    return mysqli_query($conexao,$consulta);
+}
+
+function retornarComentarios(){
+
+    $conexao = conectarBD();
+    // O INNER JOIN traz o nome de quem comentou.
+    // O LEFT JOIN traz o campeonato, mas o comentário aparece mesmo sem campeonato.
+    $consulta = "SELECT c.id, c.torcedor_id, c.texto, t.nome, camp.nome AS campeonato,
+                        DATE_FORMAT(c.criado_em, '%d/%m/%Y %H:%i') AS hora
+                 FROM comentarios c
+                 INNER JOIN torcedores t ON t.id = c.torcedor_id
+                 LEFT JOIN campeonatos camp ON camp.id = c.campeonato_id
+                 ORDER BY c.criado_em DESC, c.id DESC
+                 LIMIT 50";
+    $listaComentarios = mysqli_query($conexao,$consulta);
+    return $listaComentarios;
+}
+
+function excluirComentario($id, $torcedor){
+
+    $conexao = conectarBD();
+    // O "AND torcedor_id" garante que cada pessoa só apaga os PRÓPRIOS comentários
+    $consulta = "DELETE FROM comentarios WHERE id = $id AND torcedor_id = $torcedor";
     return mysqli_query($conexao,$consulta);
 }
 

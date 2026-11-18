@@ -544,4 +544,74 @@ body {
 .nota-form {
     margin: 0 0 16px;
     font-size: 0.9rem;
+
+}
+
+.titulo-grupo {
+    margin: 4px 0 8px;
+    font-weight: bold;
+}
+
+.lista-times {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 8px 16px;
+    margin-bottom: 14px;
+}
+
+.form-edicao .item-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: normal;
+}
+.form-edicao textarea {
+    padding: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #111111;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
+
+.form-edicao textarea:focus {
+    outline: 3px solid #f5cb0e;
+}
+
+.comentario {
+    max-width: 720px;
+    margin-bottom: 14px;
+    padding: 16px;
+    border: 2px solid #111111;
+    border-radius: 8px;
+}
+
+.comentario-topo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 12px;
+    margin-bottom: 8px;
+}
+
+.comentario-hora {
+    font-size: 0.85rem;
+    color: #555555;
+}
+
+.tag-campeonato {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 2px 10px;
+    background-color: #f5cb0e;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.comentario p {
+    margin: 0 0 8px;
+    line-height: 1.5;
 }

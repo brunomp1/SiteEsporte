@@ -6,7 +6,7 @@
     <nav>
         <ul>
             <li><a href="home.php">Início</a></li>
-            <li><a href="noticias.php">Notícias</a></li>
+           <li><a href="campeonatos.php">Campeonatos</a></li>
             <li><a href="cadastrar.html">Cadastrar Torcedor</a></li>
             <li><a href="torcedores.php">Visualizar Torcedores</a></li>
            <li><a href="afiliado.php">Afiliar</a></li>
@@ -14,6 +14,7 @@
             <li><a href="buscar-torcedores.php">Buscar Torcedores</a></li>
             <li><a href="cadastrar-time.php">Cadastrar Time</a></li>
             <li><a href="times.php">Visualizar Times</a></li>
+            <li><a href="comunidade.php">Comunidade</a></li>
             <li><a href="../php/sair.php">Sair</a></li>
         </ul>
     </nav>
