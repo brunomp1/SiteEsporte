@@ -298,6 +298,6 @@ function excluirComentario($id, $torcedor){
     // O "AND torcedor_id" garante que cada pessoa só apaga os PRÓPRIOS comentários
     $consulta = "DELETE FROM comentarios WHERE id = $id AND torcedor_id = $torcedor";
     return mysqli_query($conexao,$consulta);
-}
 
+}
 ?>
