@@ -175,8 +175,7 @@ function excluirTime($id){
     // O WHERE é ESSENCIAL: sem ele apagaria TODOS os times!
     $conexao = conectarBD();
     $consulta = "DELETE FROM times WHERE id = $id";
-
-// ---------------- CAMPEONATOS ----------------
+}// ---------------- CAMPEONATOS ----------------
 
 function inserirCampeonato($nome, $ano, $listaTimes){
 
