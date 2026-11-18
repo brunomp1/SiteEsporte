@@ -13,6 +13,7 @@
             <li><a href="afiliacoes.php">Visualizar Afiliações</a></li>
             <li><a href="buscar-torcedores.php">Buscar Torcedores</a></li>
             <li><a href="cadastrar-time.php">Cadastrar Time</a></li>
+            <li><a href="times.php">Visualizar Times</a></li>
             <li><a href="../php/sair.php">Sair</a></li>
         </ul>
     </nav>

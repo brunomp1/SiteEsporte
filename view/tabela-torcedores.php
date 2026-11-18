@@ -16,11 +16,9 @@
                     <td><?php echo htmlspecialchars($t['time_clube']); ?></td>
                     <td><?php echo htmlspecialchars($t['cidade']); ?></td>
               <td class="acoes">
-                        <!-- EDITAR: é só um link. Leva para a tela de edição levando o id na URL (?id=3) -->
+
                         <a class="btn-editar" href="editar-torcedor.php?id=<?php echo (int) $t['id']; ?>">Editar</a>
 
-                        <!-- EXCLUIR: é um formulário POST, com o id escondido.
-                             O confirm() abre a janelinha "OK / Cancelar" antes de enviar. -->
                         <form class="form-excluir" action="../php/excluir.php" method="post"
                               onsubmit="return confirm('Tem certeza que deseja excluir este torcedor?');">
                             <input type="hidden" name="id" value="<?php echo (int) $t['id']; ?>">

@@ -3,27 +3,25 @@ session_start();
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.html");
-    exit;
+    die();
 }
 
-require "../php/conexao.php";
+require "../php/funcoes.php";
 
-$time   = trim($_GET['time'] ?? "");
-$cidade = trim($_GET['cidade'] ?? "");
+$time   = "";
+$cidade = "";
 $resultado = null;
 
-// Só busca se a pessoa preencheu algum campo
-if ($time != "" || $cidade != "") {
-    $likeTime   = "%" . $time . "%";
-    $likeCidade = "%" . $cidade . "%";
+if (isset($_GET['time'])) {
+    $time = $_GET['time'];
+}
+if (isset($_GET['cidade'])) {
+    $cidade = $_GET['cidade'];
+}
 
-    $stmt = $conexao->prepare(
-        "SELECT id, nome, telefone, time_clube, cidade FROM torcedores
-         WHERE time_clube LIKE ? AND cidade LIKE ? ORDER BY nome"
-    );
-    $stmt->bind_param("ss", $likeTime, $likeCidade);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+
+if ($time != "" || $cidade != "") {
+    $resultado = buscarTorcedores($time, $cidade);
 }
 ?>
 <!DOCTYPE html>

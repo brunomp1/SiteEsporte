@@ -34,6 +34,12 @@ if (isset($_GET['msg'])) {
 
         <?php if ($msg == "cadastrado") { ?>
             <p class="aviso aviso-ok">Time cadastrado com sucesso.</p>
+        <?php } elseif ($msg == "editado") { ?>
+            <p class="aviso aviso-ok">Time atualizado com sucesso.</p>
+        <?php } elseif ($msg == "excluido") { ?>
+            <p class="aviso aviso-ok">Time excluído com sucesso.</p>
+        <?php } elseif ($msg == "erro") { ?>
+            <p class="aviso aviso-erro">Não foi possível concluir a operação.</p>
         <?php } ?>
 
         <?php if (mysqli_num_rows($listaTimes) == 0) { ?>
@@ -46,13 +52,22 @@ if (isset($_GET['msg'])) {
                         <th>Cidade</th>
                         <th>País</th>
                         <th>Ano de fundação</th>
+                        <th>Ações</th>
                     </tr>
                     <?php while ($t = mysqli_fetch_assoc($listaTimes)) { ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($t['nome']); ?></td>
-                            <td><?php echo htmlspecialchars($t['cidade']); ?></td>
-                            <td><?php echo htmlspecialchars($t['pais']); ?></td>
+                            <td><?php echo $t['nome']; ?></td>
+                            <td><?php echo $t['cidade']; ?></td>
+                            <td><?php echo $t['pais']; ?></td>
                             <td><?php echo $t['ano_fundacao']; ?></td>
+                            <td class="acoes">
+                                <a class="btn-editar" href="editar-time.php?id=<?php echo (int) $t['id']; ?>">Editar</a>
+
+                                <form class="form-excluir" action="../php/excluir-time.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo (int) $t['id']; ?>">
+                                    <button type="submit" class="btn-excluir">Excluir</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                 </table>

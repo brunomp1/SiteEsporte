@@ -144,4 +144,38 @@ function retornarTimePorNome($nome){
     return $time;
 }
 
+function retornarTimePorId($id){
+
+    $conexao = conectarBD();
+    $consulta = "SELECT id, nome, cidade, pais, ano_fundacao FROM times WHERE id = $id";
+    $time = mysqli_query($conexao,$consulta);
+    return $time;
+}
+
+function retornarTimeDuplicado($nome, $id){
+
+    // Procura OUTRO time (id diferente) com o mesmo nome
+    $conexao = conectarBD();
+    $consulta = "SELECT id FROM times WHERE nome = '$nome' AND id <> $id";
+    $time = mysqli_query($conexao,$consulta);
+    return $time;
+}
+
+function atualizarTime($id, $nome, $cidade, $pais, $anoFundacao){
+
+    $conexao = conectarBD();
+    $consulta = "UPDATE times
+                 SET nome = '$nome', cidade = '$cidade', pais = '$pais', ano_fundacao = $anoFundacao
+                 WHERE id = $id";
+    return mysqli_query($conexao,$consulta);
+}
+
+function excluirTime($id){
+
+    // O WHERE é ESSENCIAL: sem ele apagaria TODOS os times!
+    $conexao = conectarBD();
+    $consulta = "DELETE FROM times WHERE id = $id";
+    return mysqli_query($conexao,$consulta);
+}
+
 ?>
