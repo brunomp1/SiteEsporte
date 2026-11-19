@@ -73,7 +73,7 @@ function redefinirSenha($email, $novaSenha){
 
 function inserirAfiliacao($torcedor, $time, $plano, $pagamento){
 
-    // A hora do pagamento não é enviada: o banco guarda sozinho na coluna criado_em
+    // A hora do pagamento não é enviada porque no BD tem o  criado_em (Time_Stamp)
     $conexao = conectarBD();
     $consulta = "INSERT INTO afiliacoes (torcedor_id, time_clube, plano, pagamento)
                  VALUES ($torcedor,'$time','$plano','$pagamento')";
@@ -104,7 +104,7 @@ function retornarAfiliacaoPorId($id){
 
 function atualizarAfiliacao($id, $torcedor, $time, $plano, $pagamento){
 
-    // A coluna criado_em (hora do pagamento) não muda: continua a hora em que foi registrado
+    // A coluna criado_em (hora do pagamento) não muda, continua a hora em que foi registrado
     $conexao = conectarBD();
     $consulta = "UPDATE afiliacoes
                  SET torcedor_id = $torcedor, time_clube = '$time', plano = '$plano', pagamento = '$pagamento'
@@ -154,7 +154,7 @@ function retornarTimePorId($id){
 
 function retornarTimeDuplicado($nome, $id){
 
-    // Procura OUTRO time (id diferente) com o mesmo nome
+    // Procura OUTRO time  com o mesmo nome
     $conexao = conectarBD();
     $consulta = "SELECT id FROM times WHERE nome = '$nome' AND id <> $id";
     $time = mysqli_query($conexao,$consulta);
@@ -171,21 +171,22 @@ function atualizarTime($id, $nome, $cidade, $pais, $anoFundacao){
 }
 
 function excluirTime($id){
-
-    // O WHERE é ESSENCIAL: sem ele apagaria TODOS os times!
     $conexao = conectarBD();
     $consulta = "DELETE FROM times WHERE id = $id";
-}// ---------------- CAMPEONATOS ----------------
+    return mysqli_query($conexao,$consulta);
+}
+
+//  ---CAMPEONATOS ---
 
 function inserirCampeonato($nome, $ano, $listaTimes){
 
     $conexao = conectarBD();
-    // mysqli_real_escape_string deixa o texto seguro para entrar no SQL
+    // mysqli_real_escape_string ajeita os textos
     $nome = mysqli_real_escape_string($conexao,$nome);
     $consulta = "INSERT INTO campeonatos (nome, ano) VALUES ('$nome',$ano)";
     $resultado = mysqli_query($conexao,$consulta);
 
-    // id do campeonato que acabou de ser criado: serve para ligar os times a ele
+    // id do campeonato que acabou de ser criado, serve para ligar os times com ele
     $idNovo = mysqli_insert_id($conexao);
     salvarTimesDoCampeonato($idNovo, $listaTimes);
 
@@ -209,7 +210,6 @@ function salvarTimesDoCampeonato($idCampeonato, $listaTimes){
     $conexao = conectarBD();
 
     // Apaga os times antigos do campeonato e grava de novo os que foram marcados.
-    // Assim a mesma função serve para cadastrar e para editar.
     mysqli_query($conexao,"DELETE FROM campeonato_times WHERE campeonato_id = $idCampeonato");
 
     foreach ($listaTimes as $time) {
@@ -221,7 +221,6 @@ function salvarTimesDoCampeonato($idCampeonato, $listaTimes){
 function retornarCampeonatos(){
 
     $conexao = conectarBD();
-    // O LEFT JOIN traz o campeonato mesmo que ele ainda não tenha times.
     // O GROUP_CONCAT junta os nomes dos times em uma linha só.
     $consulta = "SELECT c.id, c.nome, c.ano, COUNT(ct.id) AS total_times,
                         GROUP_CONCAT(ct.time_nome ORDER BY ct.time_nome SEPARATOR ', ') AS times
@@ -255,18 +254,17 @@ function excluirCampeonato($id){
     // Primeiro apaga os times do campeonato, depois o próprio campeonato
     mysqli_query($conexao,"DELETE FROM campeonato_times WHERE campeonato_id = $id");
 
-    // O WHERE é ESSENCIAL: sem ele apagaria TODOS os campeonatos!
     return mysqli_query($conexao,"DELETE FROM campeonatos WHERE id = $id");
 }
 
-// ---------------- COMENTÁRIOS (COMUNIDADE) ----------------
+// -- COMENTÁRIOS (COMUNIDADE) ----
 
 function inserirComentario($torcedor, $campeonato, $texto){
 
     $conexao = conectarBD();
     $texto = mysqli_real_escape_string($conexao,$texto);
 
-    // Sem campeonato escolhido (0), o comentário é geral: guarda NULL no banco
+    // Sem campeonato == 0, o comentário é geral  e guarda NULL no DB
     if ($campeonato == 0) {
         $campeonato = "NULL";
     }
